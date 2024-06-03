@@ -1,65 +1,195 @@
 "use strict";
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (() => {
 var exports = {};
-exports.id = "pages/[...postpath]";
-exports.ids = ["pages/[...postpath]"];
+exports.id = 214;
+exports.ids = [214];
 exports.modules = {
 
-/***/ "./pages/[...postpath].tsx":
-/*!*********************************!*\
-  !*** ./pages/[...postpath].tsx ***!
-  \*********************************/
+/***/ 954:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   \"getServerSideProps\": () => (/* binding */ getServerSideProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var graphql_request__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-request */ \"graphql-request\");\n/* harmony import */ var graphql_request__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_request__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\nconst getServerSideProps = async (ctx)=>{\n    var ref;\n    const endpoint = process.env.GRAPHQL_ENDPOINT;\n    const graphQLClient = new graphql_request__WEBPACK_IMPORTED_MODULE_3__.GraphQLClient(endpoint);\n    const referringURL = ((ref = ctx.req.headers) === null || ref === void 0 ? void 0 : ref.referer) || null;\n    const pathArr = ctx.query.postpath;\n    const path = pathArr.join(\"/\");\n    console.log(path);\n    const fbclid = ctx.query.fbclid;\n    // redirect if facebook is the referer or request contains fbclid\n    if ((referringURL === null || referringURL === void 0 ? void 0 : referringURL.includes(\"facebook.com\")) || fbclid) {\n        return {\n            redirect: {\n                permanent: false,\n                destination: `${endpoint.replace(/(\\/graphql\\/)/, \"/\") + encodeURI(path)}`\n            }\n        };\n    }\n    const query = graphql_request__WEBPACK_IMPORTED_MODULE_3__.gql`\n\t\t{\n\t\t\tpost(id: \"/${path}/\", idType: URI) {\n\t\t\t\tid\n\t\t\t\texcerpt\n\t\t\t\ttitle\n\t\t\t\tlink\n\t\t\t\tdateGmt\n\t\t\t\tmodifiedGmt\n\t\t\t\tcontent\n\t\t\t\tauthor {\n\t\t\t\t\tnode {\n\t\t\t\t\t\tname\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tfeaturedImage {\n\t\t\t\t\tnode {\n\t\t\t\t\t\tsourceUrl\n\t\t\t\t\t\taltText\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t`;\n    const data = await graphQLClient.request(query);\n    if (!data.post) {\n        return {\n            notFound: true\n        };\n    }\n    return {\n        props: {\n            path,\n            post: data.post,\n            host: ctx.req.headers.host\n        }\n    };\n};\nconst Post = (props)=>{\n    const { post , host , path  } = props;\n    // to remove tags from excerpt\n    const removeTags = (str)=>{\n        if (str === null || str === \"\") return \"\";\n        else str = str.toString();\n        return str.replace(/(<([^>]+)>)/gi, \"\").replace(/\\[[^\\]]*\\]/, \"\");\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_head__WEBPACK_IMPORTED_MODULE_2___default()), {\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:title\",\n                        content: post.title\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 85,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"link\", {\n                        rel: \"canonical\",\n                        href: `https://${host}/${path}`\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 86,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:description\",\n                        content: removeTags(post.excerpt)\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 87,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:url\",\n                        content: `https://${host}/${path}`\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 88,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:type\",\n                        content: \"article\"\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 89,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:locale\",\n                        content: \"en_US\"\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 90,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:site_name\",\n                        content: host.split(\".\")[0]\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 91,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"article:published_time\",\n                        content: post.dateGmt\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 92,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"article:modified_time\",\n                        content: post.modifiedGmt\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 93,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:image\",\n                        content: post.featuredImage.node.sourceUrl\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 94,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:image:alt\",\n                        content: post.featuredImage.node.altText || post.title\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 95,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"title\", {\n                        children: post.title\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 99,\n                        columnNumber: 5\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                lineNumber: 84,\n                columnNumber: 4\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"post-container\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                        children: post.title\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 102,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"img\", {\n                        src: post.featuredImage.node.sourceUrl,\n                        alt: post.featuredImage.node.altText || post.title\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 103,\n                        columnNumber: 5\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"article\", {\n                        dangerouslySetInnerHTML: {\n                            __html: post.content\n                        }\n                    }, void 0, false, {\n                        fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                        lineNumber: 107,\n                        columnNumber: 5\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/Users/hongsyden/LocalDocuments/SYDEN/Projects/NextJS/verfb-main/pages/[...postpath].tsx\",\n                lineNumber: 101,\n                columnNumber: 4\n            }, undefined)\n        ]\n    }, void 0, true);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Post);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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TyxFQUFFVixJQUFJLENBQUNtQixhQUFhLENBQUNDLElBQUksQ0FBQ0UsT0FBTyxJQUFJdEIsSUFBSSxDQUFDVyxLQUFLOzs7OztpQ0FDckQ7a0NBQ0YsOERBQUNBLE9BQUs7a0NBQUVYLElBQUksQ0FBQ1csS0FBSzs7Ozs7aUNBQVM7Ozs7Ozt5QkFDckI7MEJBQ1AsOERBQUNZLEtBQUc7Z0JBQUNDLFNBQVMsRUFBQyxnQkFBZ0I7O2tDQUM5Qiw4REFBQ0MsSUFBRTtrQ0FBRXpCLElBQUksQ0FBQ1csS0FBSzs7Ozs7aUNBQU07a0NBQ3JCLDhEQUFDZSxLQUFHO3dCQUNIQyxHQUFHLEVBQUUzQixJQUFJLENBQUNtQixhQUFhLENBQUNDLElBQUksQ0FBQ0MsU0FBUzt3QkFDdENPLEdBQUcsRUFBRTVCLElBQUksQ0FBQ21CLGFBQWEsQ0FBQ0MsSUFBSSxDQUFDRSxPQUFPLElBQUl0QixJQUFJLENBQUNXLEtBQUs7Ozs7O2lDQUNqRDtrQ0FDRiw4REFBQ2tCLFNBQU87d0JBQUNDLHVCQUF1QixFQUFFOzRCQUFFQyxNQUFNLEVBQUUvQixJQUFJLENBQUNVLE9BQU87eUJBQUU7Ozs7O2lDQUFJOzs7Ozs7eUJBQ3pEOztvQkFDSixDQUNGO0FBQ0gsQ0FBQztBQUVELGlFQUFlTixJQUFJLEVBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly92ZXJjZWwtcmVkaXJlY3QvLi9wYWdlcy9bLi4ucG9zdHBhdGhdLnRzeD8zNzBmIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnO1xuaW1wb3J0IHsgR2V0U2VydmVyU2lkZVByb3BzIH0gZnJvbSAnbmV4dCc7XG5pbXBvcnQgeyBHcmFwaFFMQ2xpZW50LCBncWwgfSBmcm9tICdncmFwaHFsLXJlcXVlc3QnO1xuXG5leHBvcnQgY29uc3QgZ2V0U2VydmVyU2lkZVByb3BzOiBHZXRTZXJ2ZXJTaWRlUHJvcHMgPSBhc3luYyAoY3R4KSA9PiB7XG5cdGNvbnN0IGVuZHBvaW50ID0gcHJvY2Vzcy5lbnYuR1JBUEhRTF9FTkRQT0lOVCBhcyBzdHJpbmc7XG5cdGNvbnN0IGdyYXBoUUxDbGllbnQgPSBuZXcgR3JhcGhRTENsaWVudChlbmRwb2ludCk7XG5cdGNvbnN0IHJlZmVycmluZ1VSTCA9IGN0eC5yZXEuaGVhZGVycz8ucmVmZXJlciB8fCBudWxsO1xuXHRjb25zdCBwYXRoQXJyID0gY3R4LnF1ZXJ5LnBvc3RwYXRoIGFzIEFycmF5PHN0cmluZz47XG5cdGNvbnN0IHBhdGggPSBwYXRoQXJyLmpvaW4oJy8nKTtcblx0Y29uc29sZS5sb2cocGF0aCk7XG5cdGNvbnN0IGZiY2xpZCA9IGN0eC5xdWVyeS5mYmNsaWQ7XG5cblx0Ly8gcmVkaXJlY3QgaWYgZmFjZWJvb2sgaXMgdGhlIHJlZmVyZXIgb3IgcmVxdWVzdCBjb250YWlucyBmYmNsaWRcblx0aWYgKHJlZmVycmluZ1VSTD8uaW5jbHVkZXMoJ2ZhY2Vib29rLmNvbScpIHx8IGZiY2xpZCkge1xuXHRcdHJldHVybiB7XG5cdFx0XHRyZWRpcmVjdDoge1xuXHRcdFx0XHRwZXJtYW5lbnQ6IGZhbHNlLFxuXHRcdFx0XHRkZXN0aW5hdGlvbjogYCR7XG5cdFx0XHRcdFx0ZW5kcG9pbnQucmVwbGFjZSgvKFxcL2dyYXBocWxcXC8pLywgJy8nKSArIGVuY29kZVVSSShwYXRoIGFzIHN0cmluZylcblx0XHRcdFx0fWAsXG5cdFx0XHR9LFxuXHRcdH07XG5cdH1cblx0Y29uc3QgcXVlcnkgPSBncWxgXG5cdFx0e1xuXHRcdFx0cG9zdChpZDogXCIvJHtwYXRofS9cIiwgaWRUeXBlOiBVUkkpIHtcblx0XHRcdFx0aWRcblx0XHRcdFx0ZXhjZXJwdFxuXHRcdFx0XHR0aXRsZVxuXHRcdFx0XHRsaW5rXG5cdFx0XHRcdGRhdGVHbXRcblx0XHRcdFx0bW9kaWZpZWRHbXRcblx0XHRcdFx0Y29udGVudFxuXHRcdFx0XHRhdXRob3Ige1xuXHRcdFx0XHRcdG5vZGUge1xuXHRcdFx0XHRcdFx0bmFtZVxuXHRcdFx0XHRcdH1cblx0XHRcdFx0fVxuXHRcdFx0XHRmZWF0dXJlZEltYWdlIHtcblx0XHRcdFx0XHRub2RlIHtcblx0XHRcdFx0XHRcdHNvdXJjZVVybFxuXHRcdFx0XHRcdFx0YWx0VGV4dFxuXHRcdFx0XHRcdH1cblx0XHRcdFx0fVxuXHRcdFx0fVxuXHRcdH1cblx0YDtcblxuXHRjb25zdCBkYXRhID0gYXdhaXQgZ3JhcGhRTENsaWVudC5yZXF1ZXN0KHF1ZXJ5KTtcblx0aWYgKCFkYXRhLnBvc3QpIHtcblx0XHRyZXR1cm4ge1xuXHRcdFx0bm90Rm91bmQ6IHRydWUsXG5cdFx0fTtcblx0fVxuXHRyZXR1cm4ge1xuXHRcdHByb3BzOiB7XG5cdFx0XHRwYXRoLFxuXHRcdFx0cG9zdDogZGF0YS5wb3N0LFxuXHRcdFx0aG9zdDogY3R4LnJlcS5oZWFkZXJzLmhvc3QsXG5cdFx0fSxcblx0fTtcbn07XG5cbmludGVyZmFjZSBQb3N0UHJvcHMge1xuXHRwb3N0OiBhbnk7XG5cdGhvc3Q6IHN0cmluZztcblx0cGF0aDogc3RyaW5nO1xufVxuXG5jb25zdCBQb3N0OiBSZWFjdC5GQzxQb3N0UHJvcHM+ID0gKHByb3BzKSA9PiB7XG5cdGNvbnN0IHsgcG9zdCwgaG9zdCwgcGF0aCB9ID0gcHJvcHM7XG5cblx0Ly8gdG8gcmVtb3ZlIHRhZ3MgZnJvbSBleGNlcnB0XG5cdGNvbnN0IHJlbW92ZVRhZ3MgPSAoc3RyOiBzdHJpbmcpID0+IHtcblx0XHRpZiAoc3RyID09PSBudWxsIHx8IHN0ciA9PT0gJycpIHJldHVybiAnJztcblx0XHRlbHNlIHN0ciA9IHN0ci50b1N0cmluZygpO1xuXHRcdHJldHVybiBzdHIucmVwbGFjZSgvKDwoW14+XSspPikvZ2ksICcnKS5yZXBsYWNlKC9cXFtbXlxcXV0qXFxdLywgJycpO1xuXHR9O1xuXG5cdHJldHVybiAoXG5cdFx0PD5cblx0XHRcdDxIZWFkPlxuXHRcdFx0XHQ8bWV0YSBwcm9wZXJ0eT1cIm9nOnRpdGxlXCIgY29udGVudD17cG9zdC50aXRsZX0gLz5cblx0XHRcdFx0PGxpbmsgcmVsPVwiY2Fub25pY2FsXCIgaHJlZj17YGh0dHBzOi8vJHtob3N0fS8ke3BhdGh9YH0gLz5cblx0XHRcdFx0PG1ldGEgcHJvcGVydHk9XCJvZzpkZXNjcmlwdGlvblwiIGNvbnRlbnQ9e3JlbW92ZVRhZ3MocG9zdC5leGNlcnB0KX0gLz5cblx0XHRcdFx0PG1ldGEgcHJvcGVydHk9XCJvZzp1cmxcIiBjb250ZW50PXtgaHR0cHM6Ly8ke2hvc3R9LyR7cGF0aH1gfSAvPlxuXHRcdFx0XHQ8bWV0YSBwcm9wZXJ0eT1cIm9nOnR5cGVcIiBjb250ZW50PVwiYXJ0aWNsZVwiIC8+XG5cdFx0XHRcdDxtZXRhIHByb3BlcnR5PVwib2c6bG9jYWxlXCIgY29udGVudD1cImVuX1VTXCIgLz5cblx0XHRcdFx0PG1ldGEgcHJvcGVydHk9XCJvZzpzaXRlX25hbWVcIiBjb250ZW50PXtob3N0LnNwbGl0KCcuJylbMF19IC8+XG5cdFx0XHRcdDxtZXRhIHByb3BlcnR5PVwiYXJ0aWNsZTpwdWJsaXNoZWRfdGltZVwiIGNvbnRlbnQ9e3Bvc3QuZGF0ZUdtdH0gLz5cblx0XHRcdFx0PG1ldGEgcHJvcGVydHk9XCJhcnRpY2xlOm1vZGlmaWVkX3RpbWVcIiBjb250ZW50PXtwb3N0Lm1vZGlmaWVkR210fSAvPlxuXHRcdFx0XHQ8bWV0YSBwcm9wZXJ0eT1cIm9nOmltYWdlXCIgY29udGVudD17cG9zdC5mZWF0dXJlZEltYWdlLm5vZGUuc291cmNlVXJsfSAvPlxuXHRcdFx0XHQ8bWV0YVxuXHRcdFx0XHRcdHByb3BlcnR5PVwib2c6aW1hZ2U6YWx0XCJcblx0XHRcdFx0XHRjb250ZW50PXtwb3N0LmZlYXR1cmVkSW1hZ2Uubm9kZS5hbHRUZXh0IHx8IHBvc3QudGl0bGV9XG5cdFx0XHRcdC8+XG5cdFx0XHRcdDx0aXRsZT57cG9zdC50aXRsZX08L3RpdGxlPlxuXHRcdFx0PC9IZWFkPlxuXHRcdFx0PGRpdiBjbGFzc05hbWU9XCJwb3N0LWNvbnRhaW5lclwiPlxuXHRcdFx0XHQ8aDE+e3Bvc3QudGl0bGV9PC9oMT5cblx0XHRcdFx0PGltZ1xuXHRcdFx0XHRcdHNyYz17cG9zdC5mZWF0dXJlZEltYWdlLm5vZGUuc291cmNlVXJsfVxuXHRcdFx0XHRcdGFsdD17cG9zdC5mZWF0dXJlZEltYWdlLm5vZGUuYWx0VGV4dCB8fCBwb3N0LnRpdGxlfVxuXHRcdFx0XHQvPlxuXHRcdFx0XHQ8YXJ0aWNsZSBkYW5nZXJvdXNseVNldElubmVySFRNTD17eyBfX2h0bWw6IHBvc3QuY29udGVudCB9fSAvPlxuXHRcdFx0PC9kaXY+XG5cdFx0PC8+XG5cdCk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBQb3N0O1xuIl0sIm5hbWVzIjpbIlJlYWN0IiwiSGVhZCIsIkdyYXBoUUxDbGllbnQiLCJncWwiLCJnZXRTZXJ2ZXJTaWRlUHJvcHMiLCJjdHgiLCJlbmRwb2ludCIsInByb2Nlc3MiLCJlbnYiLCJHUkFQSFFMX0VORFBPSU5UIiwiZ3JhcGhRTENsaWVudCIsInJlZmVycmluZ1VSTCIsInJlcSIsImhlYWRlcnMiLCJyZWZlcmVyIiwicGF0aEFyciIsInF1ZXJ5IiwicG9zdHBhdGgiLCJwYXRoIiwiam9pbiIsImNvbnNvbGUiLCJsb2ciLCJmYmNsaWQiLCJpbmNsdWRlcyIsInJlZGlyZWN0IiwicGVybWFuZW50IiwiZGVzdGluYXRpb24iLCJyZXBsYWNlIiwiZW5jb2RlVVJJIiwiZGF0YSIsInJlcXVlc3QiLCJwb3N0Iiwibm90Rm91bmQiLCJwcm9wcyIsImhvc3QiLCJQb3N0IiwicmVtb3ZlVGFncyIsInN0ciIsInRvU3RyaW5nIiwibWV0YSIsInByb3BlcnR5IiwiY29udGVudCIsInRpdGxlIiwibGluayIsInJlbCIsImhyZWYiLCJleGNlcnB0Iiwic3BsaXQiLCJkYXRlR210IiwibW9kaWZpZWRHbXQiLCJmZWF0dXJlZEltYWdlIiwibm9kZSIsInNvdXJjZVVybCIsImFsdFRleHQiLCJkaXYiLCJjbGFzc05hbWUiLCJoMSIsImltZyIsInNyYyIsImFsdCIsImFydGljbGUiLCJkYW5nZXJvdXNseVNldElubmVySFRNTCIsIl9faHRtbCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/[...postpath].tsx\n");
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ _postpath_),
+  "getServerSideProps": () => (/* binding */ getServerSideProps)
+});
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(689);
+// EXTERNAL MODULE: external "next/head"
+var head_ = __webpack_require__(968);
+var head_default = /*#__PURE__*/__webpack_require__.n(head_);
+;// CONCATENATED MODULE: external "graphql-request"
+const external_graphql_request_namespaceObject = require("graphql-request");
+;// CONCATENATED MODULE: ./pages/[...postpath].tsx
+
+
+
+
+const getServerSideProps = async (ctx)=>{
+    const endpoint = process.env.GRAPHQL_ENDPOINT;
+    const graphQLClient = new external_graphql_request_namespaceObject.GraphQLClient(endpoint);
+    const referringURL = ctx.req.headers?.referer || null;
+    const pathArr = ctx.query.postpath;
+    const path = pathArr.join("/");
+    console.log("path::", path);
+    const fbclid = ctx.query.fbclid;
+    // redirect if facebook is the referer or request contains fbclid
+    if (referringURL?.includes("facebook.com") || fbclid) {
+        return {
+            redirect: {
+                permanent: false,
+                destination: `${endpoint.replace(/(\/graphql\/)/, "/") + encodeURI(path)}`
+            }
+        };
+    }
+    const query = external_graphql_request_namespaceObject.gql`
+		{
+			post(id: "/${path}/", idType: URI) {
+				id
+				excerpt
+				title
+				link
+				dateGmt
+				modifiedGmt
+				content
+				author {
+					node {
+						name
+					}
+				}
+				featuredImage {
+					node {
+						sourceUrl
+						altText
+					}
+				}
+			}
+		}
+	`;
+    const data = await graphQLClient.request(query);
+    if (!data.post) {
+        return {
+            notFound: true
+        };
+    }
+    return {
+        props: {
+            path,
+            post: data.post,
+            host: ctx.req.headers.host
+        }
+    };
+};
+const Post = (props)=>{
+    const { post , host , path  } = props;
+    // to remove tags from excerpt
+    const removeTags = (str)=>{
+        if (str === null || str === "") return "";
+        else str = str.toString();
+        return str.replace(/(<([^>]+)>)/gi, "").replace(/\[[^\]]*\]/, "");
+    };
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+        children: [
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)((head_default()), {
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "og:title",
+                        content: post.title
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("link", {
+                        rel: "canonical",
+                        href: `https://${host}/${path}`
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "og:description",
+                        content: removeTags(post.excerpt)
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "og:url",
+                        content: `https://${host}/${path}`
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "og:type",
+                        content: "article"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "og:locale",
+                        content: "en_US"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "og:site_name",
+                        content: host.split(".")[0]
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "article:published_time",
+                        content: post.dateGmt
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "article:modified_time",
+                        content: post.modifiedGmt
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "og:image",
+                        content: post.featuredImage.node.sourceUrl
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        property: "og:image:alt",
+                        content: post.featuredImage.node.altText || post.title
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("title", {
+                        children: post.title
+                    })
+                ]
+            }),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "post-container",
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("h1", {
+                        children: post.title
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                        src: post.featuredImage.node.sourceUrl,
+                        alt: post.featuredImage.node.altText || post.title
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("article", {
+                        dangerouslySetInnerHTML: {
+                            __html: post.content
+                        }
+                    })
+                ]
+            })
+        ]
+    });
+};
+/* harmony default export */ const _postpath_ = (Post);
+
 
 /***/ }),
 
-/***/ "graphql-request":
-/*!**********************************!*\
-  !*** external "graphql-request" ***!
-  \**********************************/
-/***/ ((module) => {
-
-module.exports = require("graphql-request");
-
-/***/ }),
-
-/***/ "next/head":
-/*!****************************!*\
-  !*** external "next/head" ***!
-  \****************************/
+/***/ 968:
 /***/ ((module) => {
 
 module.exports = require("next/head");
 
 /***/ }),
 
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
+/***/ 689:
 /***/ ((module) => {
 
 module.exports = require("react");
 
 /***/ }),
 
-/***/ "react/jsx-dev-runtime":
-/*!****************************************!*\
-  !*** external "react/jsx-dev-runtime" ***!
-  \****************************************/
+/***/ 997:
 /***/ ((module) => {
 
-module.exports = require("react/jsx-dev-runtime");
+module.exports = require("react/jsx-runtime");
 
 /***/ })
 
@@ -70,7 +200,7 @@ module.exports = require("react/jsx-dev-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("./pages/[...postpath].tsx"));
+var __webpack_exports__ = (__webpack_exec__(954));
 module.exports = __webpack_exports__;
 
 })();
